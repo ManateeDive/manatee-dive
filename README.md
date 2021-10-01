@@ -31,4 +31,11 @@ THEN my list of ingredients (not recipes) is still available
 
 # Links
 
+We will be using the following APIs:
+[Spoonacular API](https://spoonacular.com/)
+[Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+[Tone.js](https://tonejs.github.io/)
+
+and the CSS framework [Materialize](materializecss.com)
+
 # Screenshots
