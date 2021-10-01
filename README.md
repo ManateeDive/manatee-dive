@@ -1,2 +1,2 @@
-# manatee-dive
+# Recipe Builder
 Web game manatee dive
