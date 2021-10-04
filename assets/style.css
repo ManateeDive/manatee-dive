@@ -1,3 +1,7 @@
 .color {
     color:aliceblue;
 }
+.div {
+    display: flex;
+    background-color: coral;
+}
