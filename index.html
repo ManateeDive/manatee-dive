@@ -6,76 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="./assets.style.css" />
+
     <title>Recipe Builder</title>
   </head>
   <header class="header">
     <h1 class="title" >RECIPE BUILDER</h1>
     <button id = "surpriseRecipe">Surprise Me!</button>
 
-  </header>
-  <br><br>
-
   <body>
 
-  <div class="container">
-  <button id = "getRecipe">Search Recipes</button>
-  <button id = "removeItem">Remove Item</button>
-  <label>Browser Select</label>
-</div>
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card blue-grey">
-      <div class="card-content white-text">
-        <span class="card-title">Ingredients</span>
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="text" id="autocomplete-input" class="autocomplete">
-            <label for="autocomplete-input">Autocomplete</label>
+    <header class="container teal lighten-4 white-text">
+        <h1>Recipe Builder</h1>
+        <button id = "surpriseRecipe">Surprise Me!</button>
+    </header>
+
+    <div class="container cardHolder">
+      <div class="row">
+          <div class="col s3">
+            <div class="card teal lighten-2">
+              <div class="card-content white-text">
+                <span class="card-title">Ingredients List</span>
+                      <div class="input-field white-text">
+                        <input type="text" id="autocomplete-input" class="autocomplete white-text">
+                        <label for="autocomplete-input">Ingredient:</label>
+                         <button id = "removeItem">Remove Item</button>
+                      </div>
+                      
+                      <select class="browser-default">
+                        <option value="" disabled selected>Select time</option>
+                        <option value="1">15 minutes</option>
+                        <option value="2">30 minutes</option>
+                        <option value="3">45 minutes</option>
+                        <option value="4">1 hour</option>
+                        <option value="5">2 hours</option>
+                      </select>
+                  <button id = "getRecipe">Search Recipes</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col s3">
+            <div class="card teal lighten-2">
+              <div class="card-content white-text">
+                <span class="card-title">Recipe Suggestions:</span>
+                  <table>
+                    <thead>
+                      <tr>
+                          <th>Result 1</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Result 2</td>
+                      </tr>
+                      <tr>
+                        <td>Result 3</td>
+                      </tr>
+                      <tr>
+                        <td>Result 4</td>
+                      </tr>
+                      <tr>
+                        <td>result 5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
           </div>
         </div>
-        <select class="browser-default">
-          <option value="" disabled selected>Select time</option>
-          <option value="1">15 minutes</option>
-          <option value="2">30 minutes</option>
-          <option value="3">45 minutes</option>
-          <option value="4">1 hour</option>
-          <option value="5">2 hours</option>
-        </select>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="assets/script.js"></script>
 
-  <table>
-    <thead>
-      <tr>
-          <th>Result 1</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Result 2</td>
-      </tr>
-      <tr>
-        <td>Result 3</td>
-      </tr>
-      <tr>
-        <td>Result 4</td>
-      </tr>
-      <tr>
-        <td>result 5</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="assets/script.js"></script>
   </body>
+
 </html>

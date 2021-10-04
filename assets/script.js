@@ -65,3 +65,10 @@ function renderCards {
 }
 
 init()
+// Add autocomplete for ingredients list
+// STILL NEED TO ADD DATA LIST with keys [ap = apples] etc.
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.autocomplete');
+    var instances = M.Autocomplete.init(elems, options);
+  });
+

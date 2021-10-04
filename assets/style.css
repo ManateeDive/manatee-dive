@@ -1,6 +1,7 @@
 .color {
     color:aliceblue;
 }
+
 .div {
     display: flex;
     background-color: coral;
@@ -18,3 +19,4 @@
 #supriseRecipe {
     margin-bottom: 10px;
 }
+
