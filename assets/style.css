@@ -1,7 +1,22 @@
 .color {
     color:aliceblue;
 }
+
 .div {
     display: flex;
     background-color: coral;
 }
+
+.header {
+    display: block;
+    background-color: rgb(132, 133, 133);
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    
+}
+
+#supriseRecipe {
+    margin-bottom: 10px;
+}
+
