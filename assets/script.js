@@ -75,14 +75,20 @@ function surpriseMe (){
       return response.json();
     })
     .then(function (data) {
-      var listItem = document.createElement('li');
-      listItem.textContent = data.recipes[0].title;   
-
+      var listItem = document.createElement('a');
+      listItem.textContent = data.recipes[0].title;
+      listItem.setAttribute("class", "btn");
+      var aTag = data.recipes[0].sourceUrl;
+      console.log(data.recipes[0])
+      listItem.setAttribute("href", aTag)
       surpriseResult.appendChild(listItem);
     })
     };
 
 surpriseRecipe.addEventListener('click', surpriseMe);
+
+// var surpriseLinkButton = document.getElementById("surprisemeLink");
+// surpriseLinkButton.addEventListener('click', )
 
 // Make cards
 
