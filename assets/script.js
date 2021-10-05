@@ -28,7 +28,7 @@ ingredientsList = {
   z:  "zucchini"
 }
 function getApi() {
-var requestUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
+var requestUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=6b2994b0da2e49f2a7e66de1133a594f&per_page=5"
 
 fetch(requestUrl)
     .then(function (response) {
@@ -68,21 +68,26 @@ var surpriseResult = document.getElementById('surpriseResult');
 
 function surpriseMe (){
     // Gets one random recipe from list above
-    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f&number=1&limitLicinse=true"
+    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
     console.log("clicked")
     fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i].html_url;
-        surpriseResult.appendChild(listItem);
-        
-      }
-    });
-}
+      var listItem = document.createElement('li');
+      listItem.setAttribute("class", "btn");
+      var atag = document.createElement('a')
+      atag.textContent = data.recipes[0].title;   
+      atag.setAttribute('target', 'blank')
+      atag.setAttribute("href", data.recipes[0].sourceUrl)
+      listItem.setAttribute('width', 'fit-content')
+      console.log(data.recipes[0].sourceUrl)
+      listItem.appendChild(atag)
+      surpriseResult.appendChild(listItem);
+      
+    })
+    };
 
 surpriseRecipe.addEventListener('click', surpriseMe);
 
