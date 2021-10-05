@@ -11,8 +11,14 @@
 #surpriseRecipe {
   margin-bottom: 10px;
   border-radius: 5px;
+  border-style: hidden;
+  padding: 1%;
   color: var(--textColor);
   background-color: var(--secondaryColor);
+  box-shadow: 1px 1px 10px rgb(172, 170, 170);
+}
+#surpriseRecipe:hover {
+  background-color: #43a198;
 }
 #ingredients {
   font-size: 20px;
@@ -63,5 +69,26 @@
 }
 
 .recipeBtn {
-  colors:
+  background-color: var(--mainColor);
+  border-radius: 5px;
+  border-style: hidden;
+  color: var(--textColor);
+  padding: 2%;
+  box-shadow: 1px 1px 20px grey;
+}
+
+.recipeBtn:hover {
+background-color: #56cca3;
+}
+#addIngredient {
+  background-color: var(--mainColor);
+  border-radius: 5px;
+  border-style: hidden;
+  color: var(--textColor);
+  padding: 2%;
+  box-shadow: 1px 1px 20px grey;
+}
+
+#addIngredient:hover {
+background-color: #56cca3;
 }
