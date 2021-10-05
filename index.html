@@ -24,6 +24,7 @@
             <div class="card teal lighten-2">
               <div class="card-content white-text">
                 <span class="card-title">Ingredients List</span>
+                
                 <form class="input-field white-text" id="form">
                   <input type="text" id="autocomplete-input" class="autocomplete white-text" id="inputId">
                   <label class= "cards white-text" for="autocomplete-input ">Ingredients:</label>
@@ -31,6 +32,7 @@
                          
                       </form>
                       <ul id="ingredientsList"></ul>
+
                       <select class="browser-default">
                         <option value="" disabled selected>Select time</option>
                         <option value="1">15 minutes</option>
@@ -40,7 +42,7 @@
                         <option value="5">2 hours</option>
                       </select>
                       <br>
-                  <button class="" id = "getRecipe">Search Recipes</button>
+                  <button class="recipeBtn" id = "getRecipe">Search Recipes</button>
               </div>
             </div>
 
@@ -50,7 +52,7 @@
             <div class="card teal lighten-2 ">
               <div class="card-content white-text">
                 <span class="card-title">Recipe Suggestions:</span>
-                  <ul>
+                  <ul id="suggestResult" class="subheader">
                       <li>Recipes go here...</li>
 
                   </ul>
@@ -60,8 +62,8 @@
           <div class="col s6">
             <div class="card teal lighten-2">
               <div class="card-content white-text">
-                <span class="card-title">Your Surprise Recipe:</span>
-                  <div id="surpriseResult">
+                <span class="card-title">Surprise Recipe:</span>
+                  <div>
                     <ul id="surpriseResult"></ul>
                 </div>
               </div>

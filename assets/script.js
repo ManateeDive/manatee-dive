@@ -1,7 +1,7 @@
-var recipeList = document.querySelector('ul');
-var getRecipe = document.getElementById('getRecipe');
+
 var removeItem = document.getElementById('removeItem')
 var ingredientsList = document.getElementById('ingredientsList');
+
 
 ingredientsList = {
   a:  "avocado",
@@ -30,13 +30,19 @@ ingredientsList = {
   y:  "yams",
   z:  "zucchini"
 }
+
+var recipeList = document.querySelector('suggestResult');
+var getRecipe = document.getElementById('getRecipe'); //the button
+
 function getApi() {
+
   var queryString = "?q=apples";
   var apiKey = "&apiKey=fcd9342fe05d484285a789f3da6691c2";
   queryString = queryString.concat('', apiKey);
   var requestUrl = "https://api.spoonacular.com/recipes/complexSearch"
   requestUrl = requestUrl.concat('', queryString);
   console.log(requestUrl);
+
 
 fetch(requestUrl)
     .then(function (response) {
@@ -45,10 +51,14 @@ fetch(requestUrl)
     .then(function (data) {
       for (var i = 0; i < data.length; i++) {
         var listItem = document.createElement('li');
-        listItem.textContent = data[i].html_url;
-        recipeList.appendChild(listItem);
-      }
-    });
+        var atag = document.createElement('a')
+        atag.textContent = data.recipes[i].title
+        atag.setAttribute("href", data.recipes[i].sourceUrl)
+        listItem.appendChild(atag);
+        recipeList.appendChild(listItem)
+
+    };
+})
 }
 getRecipe.addEventListener('click', getApi);
 
@@ -69,34 +79,7 @@ getRecipe.addEventListener('click', getApi);
 
 // }
 
-// Surprise Me variables
-// var surpriseRecipe = document.getElementById('surpriseRecipe');
-// var surpriseResult = document.getElementById('surpriseResult');
 
-// function surpriseMe (){
-//     // Gets one random recipe from list above
-//     var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
-    
-//     fetch(requestUrl)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       for (var i = 0; i < data.length; i++) {
-//         var listItem = document.createElement('li');
-//         listItem.textContent = data[i].recipe.;
-//         surpriseResult.appendChild(listItem);
-        
-//       }
-//     });
-// }
-
-
-
-
-
-
-// surpriseRecipe.addEventListener('click', surpriseMe);
 
 
 // // Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
@@ -127,6 +110,35 @@ function removeItem() {
 
 
 
+var surpriseRecipe = document.getElementById('surpriseRecipe'); //the button
+var surpriseResult = document.getElementById('surpriseResult');
+
+function surpriseMe (){
+    // Gets one random recipe from list above
+    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=fcd9342fe05d484285a789f3da6691c2"
+    console.log("clicked")
+    fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var listItem = document.createElement('li');
+      listItem.setAttribute("class", "btn");
+      var atag = document.createElement('a')
+      atag.textContent = data.recipes[0].title;   
+      atag.setAttribute('target', 'blank')
+      atag.setAttribute("href", data.recipes[0].sourceUrl)
+      atag.style.color = "white"
+      atag.style.width = "fit-content" //unsure if this is working
+      console.log(data.recipes[0].sourceUrl)
+      listItem.appendChild(atag)
+      surpriseResult.appendChild(listItem);
+    })
+    };
+
+surpriseRecipe.addEventListener('click', surpriseMe);
+
+
 // Make cards
 
 // function renderCards (){
@@ -141,4 +153,3 @@ function removeItem() {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
 //   });
-
