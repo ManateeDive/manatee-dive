@@ -1,30 +1,30 @@
 var recipeList = document.querySelector('ul');
 var getRecipe = document.getElementById('getRecipe');
 ingredientsList = {
-  a:  "avocado"
-  b:  "banana"
-  c:  "chocolate"
-  d:  "durian"
-  e:  "eggs"
-  f:  "feta"
-  g:  "grape"
-  h:  "halibut"
-  i:  "iodized salt"
-  j:  "jicama"
-  k:  "kiwi"
-  l:  "lemon"
-  m:  "mango"
-  n:  "nopale"
-  o:  "oregano"
-  p:  "pickles"
-  q:  "quinoa"
-  r:  "raisin"
-  t:  "tofu"
-  u:  "ume"
-  v:  "valerian"
-  w:  "wombat pate"
-  x:  "mystery meat"
-  y:  "yams"
+  a:  "avocado",
+  b:  "banana",
+  c:  "chocolate",
+  d:  "durian",
+  e:  "eggs",
+  f:  "feta",
+  g:  "grape",
+  h:  "halibut",
+  i:  "iodized salt",
+  j:  "jicama",
+  k:  "kiwi",
+  l:  "lemon",
+  m:  "mango",
+  n:  "nopale",
+  o:  "oregano",
+  p:  "pickles",
+  q:  "quinoa",
+  r:  "raisin",
+  t:  "tofu",
+  u:  "ume",
+  v:  "valerian",
+  w:  "wombat pate",
+  x:  "mystery meat",
+  y:  "yams",
   z:  "zucchini"
 }
 function getApi() {

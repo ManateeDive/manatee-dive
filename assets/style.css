@@ -28,17 +28,17 @@
   padding-top: 3px;
   padding-bottom: 10px;
   background-color: var(--mainColor);
-  color: var(--textColor)
+  color: var(--textColor);
+  font-size: 25px;
 }
 
-.cards {
-    background-color: black;
-}
-
-.ingredients {
-    background-color: black;
-    color: var(--textColor);
+.cardHolder {
+    color:white;
+    font-size: 15px;
     
 
     
+}
+
+nd-color: black;
 }
