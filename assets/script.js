@@ -68,8 +68,8 @@ var surpriseResult = document.getElementById('surpriseResult');
 
 function surpriseMe (){
     // Gets one random recipe from list above
-    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
-    
+    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f&number=1&limitLicinse=true"
+    console.log("clicked")
     fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -83,6 +83,7 @@ function surpriseMe (){
       }
     });
 }
+
 surpriseRecipe.addEventListener('click', surpriseMe);
 
 // Make cards
