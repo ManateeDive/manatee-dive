@@ -1,5 +1,8 @@
 var recipeList = document.querySelector('ul');
 var getRecipe = document.getElementById('getRecipe');
+var removeItem = document.getElementById('removeItem')
+var ingredientsList = document.getElementById('ingredientsList');
+
 ingredientsList = {
   a:  "avocado",
   b:  "banana",
@@ -28,7 +31,12 @@ ingredientsList = {
   z:  "zucchini"
 }
 function getApi() {
-var requestUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
+  var queryString = "?q=apples";
+  var apiKey = "&apiKey=fcd9342fe05d484285a789f3da6691c2";
+  queryString = queryString.concat('', apiKey);
+  var requestUrl = "https://api.spoonacular.com/recipes/complexSearch"
+  requestUrl = requestUrl.concat('', queryString);
+  console.log(requestUrl);
 
 fetch(requestUrl)
     .then(function (response) {
@@ -49,7 +57,6 @@ getRecipe.addEventListener('click', getApi);
 // // Initialize
 // function init (){
 //     // Load any ingredients that were previously entered and autofill the ingredients list
-
 // }
 
 // // Get Recipe Button
@@ -63,27 +70,62 @@ getRecipe.addEventListener('click', getApi);
 // }
 
 // Surprise Me variables
-var surpriseRecipe = document.getElementById('surpriseRecipe');
-var surpriseResult = document.getElementById('surpriseResult');
+// var surpriseRecipe = document.getElementById('surpriseRecipe');
+// var surpriseResult = document.getElementById('surpriseResult');
 
-function surpriseMe (){
-    // Gets one random recipe from list above
-    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
+// function surpriseMe (){
+//     // Gets one random recipe from list above
+//     var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=6b2994b0da2e49f2a7e66de1133a594f"
     
-    fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i].html_url;
-        surpriseResult.appendChild(listItem);
+//     fetch(requestUrl)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       for (var i = 0; i < data.length; i++) {
+//         var listItem = document.createElement('li');
+//         listItem.textContent = data[i].recipe.;
+//         surpriseResult.appendChild(listItem);
         
-      }
-    });
+//       }
+//     });
+// }
+
+
+
+
+
+
+// surpriseRecipe.addEventListener('click', surpriseMe);
+
+
+// // Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
+// function addIngredient(event) {
+//   event.preventDefault();
+//   var listEl = document.createElement('li');
+//   var ingredient = document.getElementById('inputId').value;
+//   listEl.textContent = ingredient;
+//   ingredientsList.appendChild(listEl);
+//   // var removeButton = document.createElement("button");
+//   // listEl.appendChild(removeButton);
+
+// }
+
+// // const form = document.getElementById("#form");
+// // const ingredientsList = document.getElementById('ingredientsList');
+// form.addEventListener('keyup', addIngredient(event)) {
+//     document.getElementById('')
+// }
+
+
+// Program the remove item button to remove it's parent li only
+function removeItem() {
+
+  
+
 }
-surpriseRecipe.addEventListener('click', surpriseMe);
+
+
 
 // Make cards
 
