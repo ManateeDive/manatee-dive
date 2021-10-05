@@ -1,4 +1,8 @@
 
+var removeItem = document.getElementById('removeItem')
+var ingredientsList = document.getElementById('ingredientsList');
+
+
 ingredientsList = {
   a:  "avocado",
   b:  "banana",
@@ -31,7 +35,14 @@ var recipeList = document.querySelector('suggestResult');
 var getRecipe = document.getElementById('getRecipe'); //the button
 
 function getApi() {
-var requestUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=fcd9342fe05d484285a789f3da6691c2"
+
+  var queryString = "?q=apples";
+  var apiKey = "&apiKey=fcd9342fe05d484285a789f3da6691c2";
+  queryString = queryString.concat('', apiKey);
+  var requestUrl = "https://api.spoonacular.com/recipes/complexSearch"
+  requestUrl = requestUrl.concat('', queryString);
+  console.log(requestUrl);
+
 
 fetch(requestUrl)
     .then(function (response) {
@@ -56,7 +67,6 @@ getRecipe.addEventListener('click', getApi);
 // // Initialize
 // function init (){
 //     // Load any ingredients that were previously entered and autofill the ingredients list
-
 // }
 
 // // Get Recipe Button
@@ -69,7 +79,37 @@ getRecipe.addEventListener('click', getApi);
 
 // }
 
-// Surprise Me variables
+
+
+
+// // Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
+// function addIngredient(event) {
+//   event.preventDefault();
+//   var listEl = document.createElement('li');
+//   var ingredient = document.getElementById('inputId').value;
+//   listEl.textContent = ingredient;
+//   ingredientsList.appendChild(listEl);
+//   // var removeButton = document.createElement("button");
+//   // listEl.appendChild(removeButton);
+
+// }
+
+// // const form = document.getElementById("#form");
+// // const ingredientsList = document.getElementById('ingredientsList');
+// form.addEventListener('keyup', addIngredient(event)) {
+//     document.getElementById('')
+// }
+
+
+// Program the remove item button to remove it's parent li only
+function removeItem() {
+
+  
+
+}
+
+
+
 var surpriseRecipe = document.getElementById('surpriseRecipe'); //the button
 var surpriseResult = document.getElementById('surpriseResult');
 
@@ -97,6 +137,7 @@ function surpriseMe (){
     };
 
 surpriseRecipe.addEventListener('click', surpriseMe);
+
 
 // Make cards
 
