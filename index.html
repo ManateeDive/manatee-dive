@@ -8,17 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="./assets/style.css" />
 
-    <title>Recipe Builder</title>
   </head>
-
+  <header class="header">
+    <title>Recipe Builder</title>
+      <h1>Recipe Builder</h1>
+      <button id = "surpriseRecipe">Surprise Me!</button>
+  </header>
+  
   <body>
 
-    <header class="container teal lighten-4 white-text">
-        <h1>Recipe Builder</h1>
-        <button id = "surpriseRecipe">Surprise Me!</button>
-    </header>
 
-    <div class="container cardHolder">
+    <div class="cardHolder">
       <div class="row">
           <div class="col s6">
             <div class="card teal lighten-2">
@@ -26,7 +26,7 @@
                 <span class="card-title">Ingredients List</span>
                       <div class="input-field white-text">
                         <input type="text" id="autocomplete-input" class="autocomplete white-text">
-                        <label for="autocomplete-input">Ingredient:</label>
+                        <label class= "cards white-text" for="autocomplete-input ">Ingredients:</label>
                          <button id = "removeItem">Remove Item</button>
                       </div>
                       
@@ -38,14 +38,15 @@
                         <option value="4">1 hour</option>
                         <option value="5">2 hours</option>
                       </select>
-                  <button id = "getRecipe">Search Recipes</button>
+                      <br>
+                  <button class="" id = "getRecipe">Search Recipes</button>
               </div>
             </div>
 
           </div>
 
           <div class="col s6">
-            <div class="card teal lighten-2">
+            <div class="card teal lighten-2 ">
               <div class="card-content white-text">
                 <span class="card-title">Recipe Suggestions:</span>
                   <ul>
@@ -55,14 +56,13 @@
               </div>
             </div>
           </div>
-
           <div class="col s3">
             <div class="card teal lighten-2">
               <div class="card-content white-text">
                 <span class="card-title">Your Surprise Recipe:</span>
                   <div id="surpriseResult">
                     <ul id="surpriseResult"></ul>
-                  </div>
+                </div>
               </div>
             </div>
           </div>

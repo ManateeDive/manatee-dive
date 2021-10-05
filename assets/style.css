@@ -1,22 +1,42 @@
-.color {
-    color:aliceblue;
+:root {
+    --textColor: white;
+    --mainColor: #69E6BA;
+    --secondaryColor: #4DB6AC;
 }
 
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Id's */
+#surpriseRecipe {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color:var(--textColor);
+  background-color:var(--secondaryColor) ;
+}
+/* Classes */
+
+
 .div {
-    display: flex;
-    background-color: coral;
+  display: flex;
+  background-color: coral;
 }
 
 .header {
-    display: block;
-    background-color: rgb(132, 133, 133);
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    
+  text-align: center;
+  width: auto;
+  padding-top: 3px;
+  padding-bottom: 10px;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  font-size: 25px;
 }
 
-#supriseRecipe {
-    margin-bottom: 10px;
+.cardHolder {
+    color:white;
+    font-size: 15px;
+    
+
+    
 }
 
