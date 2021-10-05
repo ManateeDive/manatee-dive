@@ -75,14 +75,13 @@ function surpriseMe (){
       return response.json();
     })
     .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = data[i].html_url;
-        surpriseResult.appendChild(listItem);
-        
-      }
-    });
-}
+      var listItem = document.createElement('li');
+      listItem.textContent = data.recipes[0].title;   
+
+      surpriseResult.appendChild(listItem);
+    })
+    };
+
 surpriseRecipe.addEventListener('click', surpriseMe);
 
 // Make cards
