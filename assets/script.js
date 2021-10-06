@@ -1,6 +1,6 @@
 
 var removeItem = document.getElementById('removeItem')
-var ingredientsList = document.getElementById('ingredientsList');
+var ingredientList = document.getElementById('ingredientList');
 
 
 ingredientsList = {
@@ -82,20 +82,21 @@ getRecipe.addEventListener('click', getApi);
 
 
 
-// // Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
-// function addIngredient(event) {
-//   event.preventDefault();
-//   var listEl = document.createElement('li');
-//   var ingredient = document.getElementById('inputId').value;
-//   listEl.textContent = ingredient;
-//   ingredientsList.appendChild(listEl);
-//   // var removeButton = document.createElement("button");
-//   // listEl.appendChild(removeButton);
+// Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
+function addIngredient() {
+  // event.preventDefault();
+  var listEl = document.createElement('li');
+  var ingredientTemp = document.getElementById('inputId').value;
+  listEl.textContent = ingredientTemp;
+  console.log(ingredientTemp);
+  ingredientList.appendChild(listEl);
+  // var removeButton = document.createElement("button");
+  // listEl.appendChild(removeButton);
 
-// }
+}
 
-// // const form = document.getElementById("#form");
-// // const ingredientsList = document.getElementById('ingredientsList');
+// const form = document.getElementById("#form");
+
 // form.addEventListener('keyup', addIngredient(event)) {
 //     document.getElementById('')
 // }
