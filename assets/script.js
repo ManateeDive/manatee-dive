@@ -6,35 +6,29 @@ var removeItem = document.getElementById('removeItem');
 // Empty array to fill with ingredients!
 var ingredients = [];
 
+//actual list of ingredients
+
 // List of ingredient options for autocomplete. 
-ingredientsList = [
-  {a:  ["avocado", "apple", "asparagus", "almonds", "arugula"]},
-  {b:  ["banana", "broccoli", "beets", "blueberries", "bell pepper"]},
-  {c:  ["chocolate", "cherries", "cauliflower", "corn", "cucumber"]},
-  {d:  ["durian", "dates", "dill", "dragonfruit", "damson plums"]},
-  {e:  ["eggs", "eggplant", "edamame beans", "elderberries", "endive"]},
-  {f:  ["feta", "fennel", "figs", "fava beans", "flaxseed"]},
-  {g:  ["grapes", "garlic", "ginger", "green beans", "grapefruit"]},
-  {h:  ["halibut", "hazelnuts", "honey", "honeydew", "hominy"]},
-  {i:  ["iodized salt", "iceberg lettuce", "icaco", "ice cream", "idaho potato"]},
-  {j:  ["jicama", "jalepeno peppers", "jello", "jackfruit", "jaboticaba"]},
-  {k:  ["kiwi", "kale", "key lime", "ketchup", "kidney beans"]},
-  {l:  ["lemon", "leek", "lime", "lentils", "lima beans"]},
-  {m:  ["mango", "mushrooms", "mandarins", "mustard", "miso"]},
-  {n:  ["nopale", "nectarine", "nutella", "noodles", "naan bread"]},
-  {o:  ["oregano", "olives", "okra", "orange", "onion"]},
-  {p:  ["pickles", "papaya", "peach", "peanuts", "pumpkin"]},
-  {q:  ["quinoa", "quince", "quail", "queso"]},
-  {r:  ["raisins", "rhubarb", "rosemary", "rasberries", "radish"]},
-  {s:  ["shallots", "spinach", "sweet potato", "serrano peppers", "strawberries"]},
-  {t:  ["tofu", "tangerine", "tarragon", "tomato", "turnip"]},
-  {u:  ["ume", "ugli fruit", "umbrella fruit", "ube", "urda cheese"]},
-  {v:  ["valerian", "veal", "vanilla", "valerian root", "venison"]},
-  {w:  ["wombat pate", "walnuts", "watermelon", "wasabi", "white chocolate"]},
-  {x:  ["mystery meat", "xanthan gum", "xylitol"]},
-  {y:  ["yams", "yucca root", "yogurt", "yeast", "yolks"]},
-  {z:  ["zucchini", "zest"]}
-]
+const autofill = ["avocado", "apple", "asparagus", "almonds", "arugula", "banana", "broccoli", "beets", "blueberries", "bell pepper", "chocolate", "cherries", "cauliflower", "corn", "cucumber", "durian", "dates", "dill", "dragonfruit", "damson plums", "eggs", "eggplant", "edamame beans", "elderberries", "endive", "feta", "fennel", "figs", "fava beans", "flaxseed", "grapes", "garlic", "ginger", "green beans", "grapefruit", "halibut", "hazelnuts", "honey", "honeydew", "hominy", "iodized salt", "iceberg lettuce", "icaco", "ice cream", "idaho potato", "jicama", "jalepeno peppers", "jello", "jackfruit", "jaboticaba", "kiwi", "kale", "key lime", "ketchup", "kidney beans", "lemon", "leek", "lime", "lentils", "lima beans", "mango", "mushrooms", "mandarins", "mustard", "miso", "nopale", "nectarine", "nutella", "noodles", "naan bread", "oregano", "olives", "okra", "orange", "onion", "pickles", "papaya", "peach", "peanuts", "pumpkin", "quinoa", "quince", "quail", "queso", "raisins", "rhubarb", "rosemary", "rasberries", "radish", "shallots", "spinach", "sweet potato", "serrano peppers", "strawberries", "tofu", "tangerine", "tarragon", "tomato", "turnip", "ume", "ugli fruit", "umbrella fruit", "ube", "urda cheese", "valerian", "veal", "vanilla", "valerian root", "venison", "wombat pate", "walnuts", "watermelon", "wasabi", "white chocolate", "mystery meat", "xanthan gum", "xylitol", "yams", "yucca root", "yogurt", "yeast", "yolks", "zucchini", "zest"]
+
+//function to autosuggest based on matching key elemtns
+document.getElementById('inputId').addEventListener('input', (e)=>{
+
+let autofillArray = [];
+   
+if(e.target.value){
+     autofillArray = autofill.filter(autofill=> autofill.toLowerCase().includes(e.target.value));
+     autofillArray =autofillArray.map(autofill => `<li>${autofill}</li>`)
+   }
+   showIngredients(autofillArray);
+
+})
+
+function showIngredients(autofillArray){
+  const html = !autofillArray.length ? '' : autofillArray.join('');
+  document.querySelector('ul').innerHTML =html;
+}
+
 
 
 
@@ -75,11 +69,11 @@ surpriseRecipe.addEventListener('click', surpriseMe);
 //    autofill the ingredients list
 
 function init (){ 
-  var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
+  var storedIngredients = JSON.parse(localStorage.getItem("ingredient"));
 
   // If anything was retrieved from localStorage, update the array
   if (storedIngredients !== null) {
-    ingredients = storedIngredients;
+    ingredient = storedIngredients;
   }
 
   // Make the ingredients list with another function
@@ -193,7 +187,7 @@ ingredientList.addEventListener("click", function(event) {
   }
 });
 
-init()
+//init()
 
 
 // Make cards
