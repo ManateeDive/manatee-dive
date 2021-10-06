@@ -1,3 +1,4 @@
+
 // Dynamically generated list element
 var ingredientList = document.getElementById('ingredientList');
 // To remove items from ingredientList
@@ -51,23 +52,22 @@ function getApi() {
   var requestUrl = "https://api.spoonacular.com/recipes/complexSearch";
   requestUrl = requestUrl.concat('', queryString);
 
-  fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-          var listItem = document.createElement('li');
-          var atag = document.createElement('a')
-          atag.textContent = data.recipes[i].title
-          atag.setAttribute("href", data.recipes[i].sourceUrl)
-          listItem.appendChild(atag);
-          recipeList.appendChild(listItem)
+    fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (var i = 0; i < data.length; i++) {
+        var listItem = document.createElement('li');
+        var atag = document.createElement('a')
+        atag.textContent = data.recipes[i].title
+        atag.setAttribute("href", data.recipes[i].sourceUrl)
+        listItem.appendChild(atag);
+        recipeList.appendChild(listItem)
 
-        };
-      })
+    };
+})
 }
-
 getRecipe.addEventListener('click', getApi);
 
 // Spoonacular API Integration
