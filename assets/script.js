@@ -30,39 +30,7 @@ function showIngredients(autofillArray){
 }
 
 
-// Spoonacular API Integration Below
-// 
-// First get 5 recipes, query contents of: 
-// <ul id="ingredientList"></ul> 
 
-var recipeList = document.querySelector('suggestResult');
-var getRecipe = document.getElementById('getRecipe'); //the button
-
-function getApi() {
-
-  var queryString = "?q=apples"; // This is test query AND NEEDS TO BE REPLACED
-  var apiKey = "&apiKey=fcd9342fe05d484285a789f3da6691c2";
-  queryString = queryString.concat('', apiKey);
-  var requestUrl = "https://api.spoonacular.com/recipes/complexSearch";
-  requestUrl = requestUrl.concat('', queryString);
-
-    fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      for (var i = 0; i < data.length; i++) {
-        var listItem = document.createElement('li');
-        var atag = document.createElement('a')
-        atag.textContent = data.recipes[i].title
-        atag.setAttribute("href", data.recipes[i].sourceUrl)
-        listItem.appendChild(atag);
-        recipeList.appendChild(listItem)
-
-    };
-})
-}
-getRecipe.addEventListener('click', getApi);
 
 // Spoonacular API Integration
 // 
@@ -92,7 +60,7 @@ function surpriseMe (){
       listItem.appendChild(atag)
       surpriseResult.appendChild(listItem);
     })
-    };
+};
 
 surpriseRecipe.addEventListener('click', surpriseMe);
 
@@ -135,6 +103,7 @@ function addIngredient() {
   }
 }
 
+
 // Store ingredients in local storage
 function storeIngredients() {
   // Stringify and set key in localStorage to todos array
@@ -160,6 +129,42 @@ form.addEventListener("submit", function(event) {
   addIngredient();
 
 });
+
+// Spoonacular API Integration Below
+// 
+// First get 5 recipes, query contents of: 
+// <ul id="ingredientList"></ul> 
+
+var recipeList = document.querySelector('#suggestResult');
+var getRecipe = document.getElementById('getRecipe'); //the button
+
+function getApi() {
+
+  var queryString = "&ingredients=" + "bananas"; //bananas is a test... need to add var ingredients 
+  var apiKey = "?apiKey=fcd9342fe05d484285a789f3da6691c2";
+  apiKey = apiKey.concat('', queryString);
+  var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients";
+  requestUrl = requestUrl.concat('', apiKey);
+  console.log(requestUrl)
+    
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+    console.log(data)
+      for (var i = 0; i < data.length-5; i++) { 
+        var listItem = document.createElement('li');
+        listItem.textContent = data[i].title;
+        var foodImage = document.createElement('img');
+        foodImage.src = (data[i].image);
+
+        recipeList.appendChild(listItem);
+        recipeList.appendChild(foodImage);
+      }
+    })
+}
+getRecipe.addEventListener('click', getApi);
 
 // Program the remove item button to remove it's parent li only
 function removeItem() {
