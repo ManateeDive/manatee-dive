@@ -105,8 +105,18 @@ surpriseRecipe.addEventListener('click', surpriseMe);
 // Initialize
 //    Load any ingredients that were previously entered 
 //    autofill the ingredients list
-// function init (){}
-// init()
+
+function init (){ 
+  var storedIngredients = JSON.parse(localStorage.getItem("ingredients"));
+
+  // If anything was retrieved from localStorage, update the array
+  if (storedIngredients !== null) {
+    ingredients = storedIngredients;
+  }
+
+  // Make the ingredients list with another function
+  addIngredient();
+}
 
 // Dynamically generate a list of ingredient below the input field
 // Each ingredient also gets a remove item button
@@ -161,6 +171,24 @@ form.addEventListener("submit", function(event) {
 function removeItem() {
 
 }
+
+// Add click event to todoList element
+ingredientList.addEventListener("click", function(event) {
+  var element = event.target;
+
+  // Checks if element is a button
+  if (element.matches("button") === true) {
+    // Get its data-index value and remove the todo element from the list
+    var index = element.parentElement.getAttribute("data-index");
+    ingredients.splice(index, 1);
+
+    // Store updated todos in localStorage, re-render the list
+    storeIngredients();
+    addIngredient();
+  }
+});
+
+init()
 
 
 // Make cards
