@@ -1,8 +1,12 @@
 
-var removeItem = document.getElementById('removeItem')
+// Dynamically generated list element
 var ingredientList = document.getElementById('ingredientList');
+// To remove items from ingredientList
+var removeItem = document.getElementById('removeItem');
+// Empty array to fill with ingredients!
+var ingredients = [];
 
-
+// List of ingredient options for autocomplete. 
 ingredientsList = [
   {a:  ["avocado", "apple", "asparagus", "almonds", "arugula"]},
   {b:  ["banana", "broccoli", "beets", "blueberries", "bell pepper"]},
@@ -32,20 +36,23 @@ ingredientsList = [
   {z:  ["zucchini", "zest"]}
 ]
 
+// Spoonacular API Integration Below
+// 
+// First get 5 recipes, query contents of: 
+// <ul id="ingredientList"></ul> 
+
 var recipeList = document.querySelector('suggestResult');
 var getRecipe = document.getElementById('getRecipe'); //the button
 
 function getApi() {
 
-  var queryString = "?q=apples";
+  var queryString = "?q=apples"; // This is test query AND NEEDS TO BE REPLACED
   var apiKey = "&apiKey=fcd9342fe05d484285a789f3da6691c2";
   queryString = queryString.concat('', apiKey);
-  var requestUrl = "https://api.spoonacular.com/recipes/complexSearch"
+  var requestUrl = "https://api.spoonacular.com/recipes/complexSearch";
   requestUrl = requestUrl.concat('', queryString);
-  console.log(requestUrl);
 
-
-fetch(requestUrl)
+    fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
@@ -63,56 +70,11 @@ fetch(requestUrl)
 }
 getRecipe.addEventListener('click', getApi);
 
-// Code for the recipe builder site
+// Spoonacular API Integration
+// 
+// Surprise Me! Gets a random recipe.
 
-// // Initialize
-// function init (){
-//     // Load any ingredients that were previously entered and autofill the ingredients list
-// }
-
-// // Get Recipe Button
-
-// function getRecipe (){
-//     // Calls spoonacular api with the inputs as ingredients 
-//     // gets 5 recipes back in order of most ingredients used
-//     // if recipe uses more of an ingredient than the use has on hand, 
-//         // 
-
-// }
-
-
-
-
-// Dynamically generate a list of ingredient below the input field, each ingredient also gets a remove item button
-function addIngredient() {
-  // event.preventDefault();
-  var listEl = document.createElement('li');
-  var ingredientTemp = document.getElementById('inputId').value;
-  listEl.textContent = ingredientTemp;
-  console.log(ingredientTemp);
-  ingredientList.appendChild(listEl);
-  // var removeButton = document.createElement("button");
-  // listEl.appendChild(removeButton);
-
-}
-
-// const form = document.getElementById("#form");
-
-// form.addEventListener('keyup', addIngredient(event)) {
-//     document.getElementById('')
-// }
-
-
-// Program the remove item button to remove it's parent li only
-function removeItem() {
-
-  
-
-}
-
-
-
-var surpriseRecipe = document.getElementById('surpriseRecipe'); //the button
+var surpriseRecipe = document.getElementById('surpriseRecipe'); 
 var surpriseResult = document.getElementById('surpriseResult');
 
 function surpriseMe (){
@@ -140,17 +102,82 @@ function surpriseMe (){
 
 surpriseRecipe.addEventListener('click', surpriseMe);
 
+// Initialize
+//    Load any ingredients that were previously entered 
+//    autofill the ingredients list
+// function init (){}
+// init()
+
+// Dynamically generate a list of ingredient below the input field
+// Each ingredient also gets a remove item button
+
+function addIngredient() {
+  // Clear ingredientList element
+  ingredientList.innerHTML = "";
+
+  // Render a new li for each ingredient
+  for (var i = 0; i < ingredients.length; i++) {
+    var ingred = ingredients[i];
+
+    var li = document.createElement("li");
+    li.textContent = ingred;
+    li.setAttribute("data-index", i);
+
+    var button = document.createElement("button");
+    button.textContent = "X";
+
+    li.appendChild(button);
+    ingredientList.appendChild(li);
+  }
+}
+
+// Store ingredients in local storage
+function storeIngredients() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem("ingredients", JSON.stringify(ingredients));
+}
+
+// Add submit event to form
+const form = document.getElementById("form");
+const inputId = document.getElementById("inputId")
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var text = inputId.value.trim();
+  // return if nothing entered
+  if (text === "") {
+    return;
+  }
+  ingredients.push(text);
+  inputId.value = "";
+
+  // Store ingredients in localStorage, re-render the list
+  storeIngredients();
+  addIngredient();
+
+});
+
+// Program the remove item button to remove it's parent li only
+function removeItem() {
+
+}
+
 
 // Make cards
+//     Instead of making a list of recipes, 
+//     make a card for each recipe
+//     Spoonacular returns an image url so card could have image!
+// function renderCards (){}
 
-// function renderCards (){
-//     // Build the cards with data sourced from the spoonacular API
+// Get Recipe Button
+    // Calls spoonacular api with the inputs as ingredients 
+    // gets 5 recipes back in order of most ingredients used
+    // if recipe uses more of an ingredient than the use has on hand
+    // ignore
+// function getRecipe (){ }
 
-// }
-
-// init()
 // // Add autocomplete for ingredients list
-// // STILL NEED TO ADD DATA LIST with keys [ap = apples] etc.
+//  
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
