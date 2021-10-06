@@ -25,23 +25,24 @@
               <div class="card-content white-text">
                 <span class="card-title">Ingredients List</span>
                 
-                <form class="input-field white-text" id="form">
-                  <input type="text" id="autocomplete-input" class="autocomplete white-text" id="inputId">
-                  <label class= "cards white-text" for="autocomplete-input ">Ingredients:</label>
-                  <button type="submit" id="addIngredient" onclick="addIngredient">Add Ingredient</button>
+                <form class="input-field white-text" id="form" method="POST">
+                  <input type="text" id="inputId">
+                  <label class= "cards white-text" for="inputId ">Ingredients:</label>
+                  <!-- <button type="submit" id="addIngredient" onclick="addIngredient">Add Ingredient</button> -->
                          
-                      </form>
-                      <ul id="ingredientsList"></ul>
+                </form>
 
-                      <select class="browser-default">
-                        <option value="" disabled selected>Select time</option>
-                        <option value="1">15 minutes</option>
-                        <option value="2">30 minutes</option>
-                        <option value="3">45 minutes</option>
-                        <option value="4">1 hour</option>
-                        <option value="5">2 hours</option>
-                      </select>
-                      <br>
+                <ul id="ingredientList">Ingredients on hand:</ul>
+
+                <select class="browser-default">
+                  <option value="" disabled selected>Select time</option>
+                  <option value="1">15 minutes</option>
+                  <option value="2">30 minutes</option>
+                  <option value="3">45 minutes</option>
+                  <option value="4">1 hour</option>
+                  <option value="5">2 hours</option>
+                </select>
+                <br>
                   <button class="recipeBtn" id = "getRecipe">Search Recipes</button>
               </div>
             </div>
