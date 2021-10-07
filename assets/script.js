@@ -48,6 +48,7 @@ function surpriseMe (){
       return response.json();
     })
     .then(function (data) {
+      console.log(data)
       var listItem = document.createElement('li');
       listItem.setAttribute("class", "btn");
       var atag = document.createElement('a')
@@ -139,8 +140,13 @@ var recipeList = document.querySelector('#suggestResult');
 var getRecipe = document.getElementById('getRecipe'); //the button
 
 function getApi() {
+  var ingredientString = "";
+  for (var i = 0; i < ingredients.length; i++) {
+    ingredientString = ingredientString.concat(ingredients[i]);
+    ingredientString = ingredientString.concat(",+");
+  }
 
-  var queryString = "&ingredients=" + "bananas"; //bananas is a test... need to add var ingredients 
+  var queryString = "&ingredients=" + ingredientString; 
   var apiKey = "?apiKey=fcd9342fe05d484285a789f3da6691c2";
   apiKey = apiKey.concat('', queryString);
   var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients";
@@ -158,7 +164,9 @@ function getApi() {
         listItem.textContent = data[i].title;
         var foodImage = document.createElement('img');
         foodImage.src = (data[i].image);
-
+console.log(data[i].id)
+var url = "https://api.spoonacular.com/recipes/"+ data[i].id +"/information?apiKey=fcd9342fe05d484285a789f3da6691c2"
+console.log(url)
         recipeList.appendChild(listItem);
         recipeList.appendChild(foodImage);
       }
@@ -209,3 +217,24 @@ ingredientList.addEventListener("click", function(event) {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
 //   });
+
+var jokeBtn = document.querySelector('#jokeBtn');
+var jokeHere = document.getElementById('jokeHere');
+function foodJoke () {
+    console.log("clicked")
+    var requestUrl = 'https://api.spoonacular.com/food/jokes/random?apiKey=fcd9342fe05d484285a789f3da6691c2';
+
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data.text)
+          
+        jokeHere.textContent = data.text;
+          
+        
+      });
+  }
+  
+  jokeBtn.addEventListener('click', foodJoke);
