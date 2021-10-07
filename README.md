@@ -51,3 +51,5 @@ We will be using the following APIs:
 and the CSS framework [Materialize](materializecss.com)
 
 # Screenshots
+
+[Screenshot](./assets/screenshot.png)
