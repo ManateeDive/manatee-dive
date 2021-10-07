@@ -65,7 +65,11 @@
 }
 
 .removeBtn {
-
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: black;
+  background-color: var(--mainColor);
+  border-color: var(--secondaryColor);
 }
 
 .recipeBtn {
