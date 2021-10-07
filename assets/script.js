@@ -84,7 +84,7 @@ function init (){
 
 function addIngredient() {
   // Clear ingredientList element
-  ingredientList.innerHTML = "";
+  ingredientList.innerHTML = " ";
 
   // Render a new li for each ingredient
   for (var i = 0; i < ingredients.length; i++) {
@@ -96,7 +96,10 @@ function addIngredient() {
 
     var button = document.createElement("button");
     button.textContent = "X";
-
+    button.style.backgroundColor = "#69e6ba";
+    button.style.borderRadius = "5px";
+    button.style.color = "white";
+    button.style.border = "hidden";
     li.appendChild(button);
     ingredientList.appendChild(li);
   }
@@ -227,15 +230,11 @@ function foodJoke () {
       })
       .then(function (data) {
         console.log(data.text)
-          
         jokeHere.textContent = data.text;
-          
-        
       });
-  }
-  
-  jokeBtn.addEventListener('click', foodJoke);
-//   });
+}
+jokeBtn.addEventListener('click', foodJoke);
+
 
 // // Audio for Buttons
 const audioContext = new (window.AudioContext || window.AudioContext)();
