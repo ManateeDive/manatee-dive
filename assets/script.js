@@ -6,8 +6,6 @@ var removeItem = document.getElementById('removeItem');
 // Empty array to fill with ingredients!
 var ingredients = [];
 
-//actual list of ingredients
-
 // List of ingredient options for autocomplete. 
 const autofill = ["avocado", "apple", "asparagus", "almonds", "arugula", "banana", "broccoli", "beets", "blueberries", "bell pepper", "chocolate", "cherries", "cauliflower", "corn", "cucumber", "durian", "dates", "dill", "dragonfruit", "damson plums", "eggs", "eggplant", "edamame beans", "elderberries", "endive", "feta", "fennel", "figs", "fava beans", "flaxseed", "grapes", "garlic", "ginger", "green beans", "grapefruit", "halibut", "hazelnuts", "honey", "honeydew", "hominy", "iodized salt", "iceberg lettuce", "icaco", "ice cream", "idaho potato", "jicama", "jalepeno peppers", "jello", "jackfruit", "jaboticaba", "kiwi", "kale", "key lime", "ketchup", "kidney beans", "lemon", "leek", "lime", "lentils", "lima beans", "mango", "mushrooms", "mandarins", "mustard", "miso", "nopale", "nectarine", "nutella", "noodles", "naan bread", "oregano", "olives", "okra", "orange", "onion", "pickles", "papaya", "peach", "peanuts", "pumpkin", "quinoa", "quince", "quail", "queso", "raisins", "rhubarb", "rosemary", "rasberries", "radish", "shallots", "spinach", "sweet potato", "serrano peppers", "strawberries", "tofu", "tangerine", "tarragon", "tomato", "turnip", "ume", "ugli fruit", "umbrella fruit", "ube", "urda cheese", "valerian", "veal", "vanilla", "valerian root", "venison", "wombat pate", "walnuts", "watermelon", "wasabi", "white chocolate", "mystery meat", "xanthan gum", "xylitol", "yams", "yucca root", "yogurt", "yeast", "yolks", "zucchini", "zest"]
 

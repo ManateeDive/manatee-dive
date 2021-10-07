@@ -20,8 +20,9 @@
 #surpriseRecipe:hover {
   background-color: #43a198;
 }
+
 #ingredients {
-  font-size: 20px;
+  font-size: 40px;
   border-bottom: 4px solid rgb(255, 255, 255);
   padding-right: 300px;
 }
@@ -44,7 +45,7 @@
 
 .cardHolder {
   color: white;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 
@@ -53,7 +54,6 @@
   padding: 25px;
   text-align: center;
   border-radius: 15px;
-
 }
 
 .card .card-title {
@@ -70,11 +70,12 @@
 
 .recipeBtn {
   background-color: var(--mainColor);
-  border-radius: 5px;
+  border-radius: 10px;
   border-style: hidden;
   color: var(--textColor);
-  padding: 2%;
+  padding: 1%;
   box-shadow: 1px 1px 20px grey;
+  margin-left: 833px;
 }
 
 .recipeBtn:hover {
