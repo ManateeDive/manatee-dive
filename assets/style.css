@@ -7,7 +7,7 @@
 * {
   font-family: "Times New Roman", Times, serif;
 }
-/* Id's */
+/* styles the "surprise me" button */
 #surpriseRecipe {
   margin-bottom: 10px;
   border-radius: 5px;
@@ -21,12 +21,11 @@
   background-color: #43a198;
 }
 
-#ingredients {
+/* #ingredients {
   font-size: 40px;
   border-bottom: 4px solid rgb(255, 255, 255);
   padding-right: 300px;
-}
-/* Classes */
+} */
 
 .div {
   display: flex;
@@ -48,7 +47,7 @@
   font-size: 20px;
 }
 
-
+/*stlyes the card titles*/
 .card-title {
   background-color:var(--mainColor);
   padding: 25px;
@@ -64,14 +63,15 @@
   font-size: 25px;
 }
 
-.removeBtn {
+/* .removeBtn {
   margin-bottom: 10px;
   border-radius: 10px;
   color: black;
   background-color: var(--mainColor);
   border-color: var(--secondaryColor);
-}
+} */
 
+/*styles the "search receipes" button*/
 .recipeBtn {
   background-color: var(--mainColor);
   border-radius: 10px;
@@ -79,28 +79,14 @@
   color: var(--textColor);
   padding: 1%;
   box-shadow: 1px 1px 20px grey;
-  margin-left: 833px;
 }
-
 .recipeBtn:hover {
-background-color: #56cca3;
-}
-#addIngredient {
-  background-color: var(--mainColor);
-  border-radius: 5px;
-  border-style: hidden;
-  color: var(--textColor);
-  padding: 2%;
-  box-shadow: 1px 1px 20px grey;
+  background-color: #60cfa8;
 }
 
-#addIngredient:hover {
-background-color: #56cca3;
-}
-
+/*these style the footer*/
 body {
 min-height: 100vh;
-display: flex;
 }
 
 #footer {
@@ -114,6 +100,7 @@ display: flex;
   padding: 1%;
 }
 
+/*styles the "generate joke button"*/
 #jokeBtn {
   margin-top: 20px;
   border-radius: 5px;
@@ -126,4 +113,19 @@ display: flex;
 
 #jokeBtn:hover {
   background-color: #43a198;
+}
+
+/*spaces the "surprise recipe" and "recipe suggestion" cards*/
+.cardSpacing {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/*aligns the result of the surprise recipe into the center of the card*/
+#surpriseResult {
+  text-align: center;
+}
+/*aligns the result of the search recipes into the center of the card*/
+#suggestResult {
+  text-align: center;
 }
