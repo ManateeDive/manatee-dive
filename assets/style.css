@@ -1,11 +1,12 @@
 :root {
-  --textColor: white;
-  --mainColor: #69e6ba;
-  --secondaryColor: #4db6ac;
+  --textColor: #edf6f9;
+  --mainColor: #83c5be; /*titles*/
+  --secondaryColor: #006d77; /*card containers*/
+  --pinkColor: #f5bab0; /*header/footer*/
 }
 
 * {
-  font-family: "Times New Roman", Times, serif;
+ 
 }
 /* styles the "surprise me" button */
 #surpriseRecipe {
@@ -18,7 +19,7 @@
   box-shadow: 1px 1px 10px rgb(172, 170, 170);
 }
 #surpriseRecipe:hover {
-  background-color: #43a198;
+  background-color:#005057;
 }
 
 /* #ingredients {
@@ -29,7 +30,7 @@
 
 .div {
   display: flex;
-  background-color: coral;
+  
 }
 
 .header {
@@ -37,13 +38,13 @@
   width: auto;
   padding-top: 3px;
   padding-bottom: 10px;
-  background-color: var(--mainColor);
+  background-color: var(--pinkColor);
   color: var(--textColor);
   font-size: 25px;
 }
 
 .cardHolder {
-  color: white;
+  color: var(--textColor);
   font-size: 20px;
 }
 
@@ -57,6 +58,8 @@
 
 .card .card-title {
   font-size: 28px;
+  font-family: serif;
+  font-weight: bold;
   font-style: italic;
 }
 .subheader {
@@ -81,12 +84,13 @@
   box-shadow: 1px 1px 20px grey;
 }
 .recipeBtn:hover {
-  background-color: #60cfa8;
+  background-color: #75b1ab;
 }
 
 /*these style the footer*/
 body {
 min-height: 100vh;
+background-color: var(--pinkColor);
 }
 
 #footer {
@@ -94,7 +98,7 @@ min-height: 100vh;
   position: sticky;
   top: 100%;
   height: auto;
-  background-color: var(--mainColor);
+  background-color: var(--pinkColor);
   color: var(--textColor);
   font-size: 25px;
   padding: 1%;
@@ -112,7 +116,7 @@ min-height: 100vh;
 }
 
 #jokeBtn:hover {
-  background-color: #43a198;
+  background-color: #005057;
 }
 
 /*spaces the "surprise recipe" and "recipe suggestion" cards*/
@@ -121,6 +125,9 @@ min-height: 100vh;
   margin-right: 10px;
 }
 
+.cardColor {
+  background-color: var(--secondaryColor);
+}
 /*aligns the result of the surprise recipe into the center of the card*/
 #surpriseResult {
   text-align: center;

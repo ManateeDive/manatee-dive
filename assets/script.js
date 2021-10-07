@@ -49,6 +49,7 @@ function surpriseMe() {
       console.log(data)
       var listItem = document.createElement('li');
       listItem.setAttribute("class", "btn");
+      listItem.style.backgroundColor = "#83c5be"
       var atag = document.createElement("a");
       atag.textContent = data.recipes[0].title;
       atag.setAttribute("target", "blank");
@@ -96,7 +97,7 @@ function addIngredient() {
 
     var button = document.createElement("button");
     button.textContent = "X";
-    button.style.backgroundColor = "#69e6ba";
+    button.style.backgroundColor = "#83c5be";
     button.style.borderRadius = "5px";
     button.style.color = "white";
     button.style.border = "hidden";
