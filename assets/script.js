@@ -1,12 +1,9 @@
-
 // Dynamically generated list element
-var ingredientList = document.getElementById('ingredientList');
+var ingredientList = document.getElementById("ingredientList");
 // To remove items from ingredientList
-var removeItem = document.getElementById('removeItem');
+var removeItem = document.getElementById("removeItem");
 // Empty array to fill with ingredients!
 var ingredients = [];
-
-//actual list of ingredients
 
 // List of ingredient options for autocomplete. 
 const autofill = ["avocado", "apple", "asparagus", "almonds", "arugula", "banana", "broccoli", "beets", "blueberries", "bell pepper", "chocolate", "cherries", "cauliflower", "corn", "cucumber", "durian", "dates", "dill", "dragonfruit", "damson plums", "eggs", "eggplant", "edamame beans", "elderberries", "endive", "feta", "fennel", "figs", "fava beans", "flaxseed", "grapes", "garlic", "ginger", "green beans", "grapefruit", "halibut", "hazelnuts", "honey", "honeydew", "hominy", "iodized salt", "iceberg lettuce", "icaco", "ice cream", "idaho potato", "jicama", "jalepeno peppers", "jello", "jackfruit", "jaboticaba", "kiwi", "kale", "key lime", "ketchup", "kidney beans", "lemon", "leek", "lime", "lentils", "lima beans", "mango", "mushrooms", "mandarins", "mustard", "miso", "nopale", "nectarine", "nutella", "noodles", "naan bread", "oregano", "olives", "okra", "orange", "onion", "pickles", "papaya", "peach", "peanuts", "pumpkin", "quinoa", "quince", "quail", "queso", "raisins", "rhubarb", "rosemary", "rasberries", "radish", "shallots", "spinach", "sweet potato", "serrano peppers", "strawberries", "tofu", "tangerine", "tarragon", "tomato", "turnip", "ume", "ugli fruit", "umbrella fruit", "ube", "urda cheese", "valerian", "veal", "vanilla", "valerian root", "venison", "wombat pate", "walnuts", "watermelon", "wasabi", "white chocolate", "mystery meat", "xanthan gum", "xylitol", "yams", "yucca root", "yogurt", "yeast", "yolks", "zucchini", "zest"]
@@ -33,39 +30,42 @@ function showIngredients(autofillArray){
 
 
 // Spoonacular API Integration
-// 
+//
 // Surprise Me! Gets a random recipe.
 
-var surpriseRecipe = document.getElementById('surpriseRecipe'); 
-var surpriseResult = document.getElementById('surpriseResult');
+var surpriseRecipe = document.getElementById("surpriseRecipe");
+var surpriseResult = document.getElementById("surpriseResult");
 
-function surpriseMe (){
-    // Gets one random recipe from list above
-    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=fcd9342fe05d484285a789f3da6691c2"
-    console.log("clicked")
-    fetch(requestUrl)
+function surpriseMe() {
+  // Gets one random recipe from list above
+  var requestUrl =
+    "https://api.spoonacular.com/recipes/random?apiKey=fcd9342fe05d484285a789f3da6691c2";
+  console.log("clicked");
+  fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+      console.log(data)
       var listItem = document.createElement('li');
       listItem.setAttribute("class", "btn");
-      var atag = document.createElement('a')
-      atag.textContent = data.recipes[0].title;   
-      atag.setAttribute('target', 'blank')
-      atag.setAttribute("href", data.recipes[0].sourceUrl)
-      atag.style.color = "white"
-      atag.style.width = "fit-content" //unsure if this is working
-      console.log(data.recipes[0].sourceUrl)
-      listItem.appendChild(atag)
+      listItem.style.backgroundColor = "#83c5be"
+      var atag = document.createElement("a");
+      atag.textContent = data.recipes[0].title;
+      atag.setAttribute("target", "blank");
+      atag.setAttribute("href", data.recipes[0].sourceUrl);
+      atag.style.color = "white";
+      atag.style.width = "fit-content"; //unsure if this is working
+      console.log(data.recipes[0].sourceUrl);
+      listItem.appendChild(atag);
       surpriseResult.appendChild(listItem);
     })
 };
 
-surpriseRecipe.addEventListener('click', surpriseMe);
+surpriseRecipe.addEventListener("click", surpriseMe);
 
 // Initialize
-//    Load any ingredients that were previously entered 
+//    Load any ingredients that were previously entered
 //    autofill the ingredients list
 
 function init (){ 
@@ -85,7 +85,7 @@ function init (){
 
 function addIngredient() {
   // Clear ingredientList element
-  ingredientList.innerHTML = "";
+  ingredientList.innerHTML = " ";
 
   // Render a new li for each ingredient
   for (var i = 0; i < ingredients.length; i++) {
@@ -97,7 +97,10 @@ function addIngredient() {
 
     var button = document.createElement("button");
     button.textContent = "X";
-
+    button.style.backgroundColor = "#83c5be";
+    button.style.borderRadius = "5px";
+    button.style.color = "white";
+    button.style.border = "hidden";
     li.appendChild(button);
     ingredientList.appendChild(li);
   }
@@ -112,8 +115,8 @@ function storeIngredients() {
 
 // Add submit event to form
 const form = document.getElementById("form");
-const inputId = document.getElementById("inputId")
-form.addEventListener("submit", function(event) {
+const inputId = document.getElementById("inputId");
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var text = inputId.value.trim();
@@ -127,7 +130,6 @@ form.addEventListener("submit", function(event) {
   // Store ingredients in localStorage, re-render the list
   storeIngredients();
   addIngredient();
-
 });
 
 // Spoonacular API Integration Below
@@ -139,8 +141,13 @@ var recipeList = document.querySelector('#suggestResult');
 var getRecipe = document.getElementById('getRecipe'); //the button
 
 function getApi() {
+  var ingredientString = "";
+  for (var i = 0; i < ingredients.length; i++) {
+    ingredientString = ingredientString.concat(ingredients[i]);
+    ingredientString = ingredientString.concat(",+");
+  }
 
-  var queryString = "&ingredients=" + "bananas"; //bananas is a test... need to add var ingredients 
+  var queryString = "&ingredients=" + ingredientString; 
   var apiKey = "?apiKey=fcd9342fe05d484285a789f3da6691c2";
   apiKey = apiKey.concat('', queryString);
   var requestUrl = "https://api.spoonacular.com/recipes/findByIngredients";
@@ -158,7 +165,9 @@ function getApi() {
         listItem.textContent = data[i].title;
         var foodImage = document.createElement('img');
         foodImage.src = (data[i].image);
-
+console.log(data[i].id)
+var url = "https://api.spoonacular.com/recipes/"+ data[i].id +"/information?apiKey=fcd9342fe05d484285a789f3da6691c2"
+console.log(url)
         recipeList.appendChild(listItem);
         recipeList.appendChild(foodImage);
       }
@@ -191,21 +200,83 @@ ingredientList.addEventListener("click", function(event) {
 
 
 // Make cards
-//     Instead of making a list of recipes, 
+//     Instead of making a list of recipes,
 //     make a card for each recipe
 //     Spoonacular returns an image url so card could have image!
 // function renderCards (){}
 
 // Get Recipe Button
-    // Calls spoonacular api with the inputs as ingredients 
-    // gets 5 recipes back in order of most ingredients used
-    // if recipe uses more of an ingredient than the use has on hand
-    // ignore
+// Calls spoonacular api with the inputs as ingredients
+// gets 5 recipes back in order of most ingredients used
+// if recipe uses more of an ingredient than the use has on hand
+// ignore
 // function getRecipe (){ }
 
 // // Add autocomplete for ingredients list
-//  
+//
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
 //   });
+
+var jokeBtn = document.querySelector('#jokeBtn');
+var jokeHere = document.getElementById('jokeHere');
+function foodJoke () {
+    console.log("clicked")
+    var requestUrl = 'https://api.spoonacular.com/food/jokes/random?apiKey=fcd9342fe05d484285a789f3da6691c2';
+
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data.text)
+        jokeHere.textContent = data.text;
+      });
+}
+jokeBtn.addEventListener('click', foodJoke);
+
+
+// // Audio for Buttons
+const audioContext = new (window.AudioContext || window.AudioContext)();
+
+const primaryGainControl = audioContext.createGain();
+primaryGainControl.gain.setValueAtTime(0.05, 0);
+primaryGainControl.connect(audioContext.destination);
+
+const dingButton = document.getElementById("surpriseRecipe");
+dingButton.addEventListener("click", async () => {
+  const response = await fetch(
+    "https://unpkg.com/@teropa/drumkit@1.1.0/src/assets/hatOpen2.mp3"
+    
+  );
+  const soundBuffer = await response.arrayBuffer();
+  const dingBuffer = await audioContext.decodeAudioData(soundBuffer);
+
+  const dingSource = audioContext.createBufferSource();
+  dingSource.buffer = dingBuffer;
+
+  dingSource.connect(primaryGainControl);
+  dingSource.start();
+});
+
+const secondaryGainControl = audioContext.createGain();
+secondaryGainControl.gain.setValueAtTime(0.05, 0);
+secondaryGainControl.connect(audioContext.destination);
+const dingBtn = document.getElementById("getRecipe");
+dingBtn.addEventListener("click", async () => {
+  const response = await fetch(
+    "https://unpkg.com/@teropa/drumkit@1.1.0/src/assets/hatOpen2.mp3"
+    
+  );
+  const soundBuffer = await response.arrayBuffer();
+  const dingBuffer = await audioContext.decodeAudioData(soundBuffer);
+
+  const dingSource = audioContext.createBufferSource();
+  dingSource.buffer = dingBuffer;
+
+  dingSource.connect(secondaryGainControl);
+  dingSource.start();
+});
+
+

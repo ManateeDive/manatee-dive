@@ -13,19 +13,31 @@ SO THAT I find recipes that use them.
 ```
 GIVEN a dashboard with text form input
 WHEN I input an ingredient into the fom
-THEN I am shown the ingredient in a list and have a new text for append below
+THEN I am shown the ingredient in a list with a remove item button
+
 GIVEN an ingredient element existing
 WHEN I input another ingredient
 THEN it is appended to the list
+
 GIVEN more than two ingredients in the list
-WHEN I click 'get recipe' button
-THEN I am presented with a list of recipes in order of matchiness.
-Given a "surprise me" button
+WHEN I click 'search recipe' button
+THEN I am presented with a list of recipes that use the ingredients
+
+GIVEN an element in a list
+WHEN I click on the 'X'
+THEN the item is removed from the list
+
+GIVEN a "surprise me" button
 WHEN I click the surprise me button
-THEN I get a single recipe using the ingredients
+THEN I get a single random recipe link in a card
+
 GIVEN I have input a list of ingredients
 WHEN I leave and return to the page
 THEN my list of ingredients (not recipes) is still available
+
+GIVEN a footer with the 'random food joke' button
+WHEN I click on the button
+THEN a joke appears at the end of the page
 ```
 
 

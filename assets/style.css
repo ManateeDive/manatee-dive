@@ -1,13 +1,14 @@
 :root {
-  --textColor: white;
-  --mainColor: #69e6ba;
-  --secondaryColor: #4db6ac;
+  --textColor: #edf6f9;
+  --mainColor: #83c5be; /*titles*/
+  --secondaryColor: #006d77; /*card containers*/
+  --pinkColor: #f5bab0; /*header/footer*/
 }
 
 * {
-  font-family: "Times New Roman", Times, serif;
+ 
 }
-/* Id's */
+/* styles the "surprise me" button */
 #surpriseRecipe {
   margin-bottom: 10px;
   border-radius: 5px;
@@ -18,18 +19,18 @@
   box-shadow: 1px 1px 10px rgb(172, 170, 170);
 }
 #surpriseRecipe:hover {
-  background-color: #43a198;
+  background-color:#005057;
 }
-#ingredients {
-  font-size: 20px;
+
+/* #ingredients {
+  font-size: 40px;
   border-bottom: 4px solid rgb(255, 255, 255);
   padding-right: 300px;
-}
-/* Classes */
+} */
 
 .div {
   display: flex;
-  background-color: coral;
+  
 }
 
 .header {
@@ -37,58 +38,101 @@
   width: auto;
   padding-top: 3px;
   padding-bottom: 10px;
-  background-color: var(--mainColor);
+  background-color: var(--pinkColor);
   color: var(--textColor);
   font-size: 25px;
 }
 
 .cardHolder {
-  color: white;
-  font-size: 15px;
+  color: var(--textColor);
+  font-size: 20px;
 }
 
-
+/*stlyes the card titles*/
 .card-title {
   background-color:var(--mainColor);
   padding: 25px;
   text-align: center;
   border-radius: 15px;
-
 }
 
 .card .card-title {
   font-size: 28px;
+  font-family: serif;
+  font-weight: bold;
   font-style: italic;
 }
 .subheader {
   font-size: 25px;
 }
 
-.removeBtn {
+/* .removeBtn {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: black;
+  background-color: var(--mainColor);
+  border-color: var(--secondaryColor);
+} */
 
-}
-
+/*styles the "search receipes" button*/
 .recipeBtn {
   background-color: var(--mainColor);
-  border-radius: 5px;
+  border-radius: 10px;
   border-style: hidden;
   color: var(--textColor);
-  padding: 2%;
+  padding: 1%;
   box-shadow: 1px 1px 20px grey;
 }
-
 .recipeBtn:hover {
-background-color: #56cca3;
-}
-#addIngredient {
-  background-color: var(--mainColor);
-  border-radius: 5px;
-  border-style: hidden;
-  color: var(--textColor);
-  padding: 2%;
-  box-shadow: 1px 1px 20px grey;
+  background-color: #75b1ab;
 }
 
-#addIngredient:hover {
-background-color: #56cca3;
+/*these style the footer*/
+body {
+min-height: 100vh;
+background-color: var(--pinkColor);
+}
+
+#footer {
+  text-align: center;
+  position: sticky;
+  top: 100%;
+  height: auto;
+  background-color: var(--pinkColor);
+  color: var(--textColor);
+  font-size: 25px;
+  padding: 1%;
+}
+
+/*styles the "generate joke button"*/
+#jokeBtn {
+  margin-top: 20px;
+  border-radius: 5px;
+  border-style: hidden;
+  padding: 1%;
+  color: var(--textColor);
+  background-color: var(--secondaryColor);
+  box-shadow: 1px 1px 10px rgb(172, 170, 170);
+}
+
+#jokeBtn:hover {
+  background-color: #005057;
+}
+
+/*spaces the "surprise recipe" and "recipe suggestion" cards*/
+.cardSpacing {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cardColor {
+  background-color: var(--secondaryColor);
+}
+/*aligns the result of the surprise recipe into the center of the card*/
+#surpriseResult {
+  text-align: center;
+}
+/*aligns the result of the search recipes into the center of the card*/
+#suggestResult {
+  text-align: center;
 }
