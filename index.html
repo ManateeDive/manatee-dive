@@ -16,13 +16,12 @@
   </header>
   
   <body>
-
     <div class="cardHolder">
       <div class="row">
-        <div class="col s6">
-          <div class="card teal lighten-2">
-            <div class="card-content white-text">
-              <span class="card-title">Ingredients List</span>
+          <div class="col s12">
+            <div class="card teal lighten-2">
+              <div class="card-content white-text">
+                <span class="card-title">Ingredients List</span>
                 
 
               <form class="input-field white-text" id="form" method="POST">
@@ -30,19 +29,26 @@
               </form>
                 <ul id="ingredientList">Ingredients on hand:</ul>
                 <li style="list-style-type: none;"></li>
-
-
-              <select class="browser-default">
-                  <option value="" disabled selected>Select time</option>
-                  <option value="1">15 minutes</option>
-                  <option value="2">30 minutes</option>
-                  <option value="3">45 minutes</option>
-                  <option value="4">1 hour</option>
-                  <option value="5">2 hours</option>
-              </select>
-                <br>
-                <button class="recipeBtn" id = "getRecipe">Search Recipes</button>
+                  <button class="recipeBtn" id = "getRecipe">Search Recipes</button>
+              </div>
             </div>
+            
+          </div>
+        </div>
+      </div>
+      <div>
+      <div class="col s6">
+        <div class="card teal lighten-2">
+          <div class="card-content white-text">
+            <span class="card-title">Surprise Recipe:</span>
+            <div>
+                <ul id="surpriseResult"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
           </div>
 
         </div>
@@ -54,21 +60,10 @@
                 <ul id="suggestResult" class="subheader">
                       
 
-                </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col s6">
-          <div class="card teal lighten-2">
-            <div class="card-content white-text">
-              <span class="card-title">Surprise Recipe:</span>
-                <div>
-                  <ul id="surpriseResult"></ul>
-                </div>
-            </div>
-          </div>
-        </div>
-    </div>
+                  </ul>
+  <body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./assets/script.js"></script>
 
     <footer class="page-footer" id="footer">
       <button id="jokeBtn">Generate a Random Food Joke</button>
