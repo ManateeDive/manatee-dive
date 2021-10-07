@@ -93,3 +93,33 @@ background-color: #56cca3;
 #addIngredient:hover {
 background-color: #56cca3;
 }
+
+body {
+min-height: 100vh;
+display: flex;
+}
+
+#footer {
+  text-align: center;
+  position: sticky;
+  top: 100%;
+  height: auto;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+  font-size: 25px;
+  padding: 1%;
+}
+
+#jokeBtn {
+  margin-top: 20px;
+  border-radius: 5px;
+  border-style: hidden;
+  padding: 1%;
+  color: var(--textColor);
+  background-color: var(--secondaryColor);
+  box-shadow: 1px 1px 10px rgb(172, 170, 170);
+}
+
+#jokeBtn:hover {
+  background-color: #43a198;
+}
