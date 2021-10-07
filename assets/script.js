@@ -1,8 +1,7 @@
-
 // Dynamically generated list element
-var ingredientList = document.getElementById('ingredientList');
+var ingredientList = document.getElementById("ingredientList");
 // To remove items from ingredientList
-var removeItem = document.getElementById('removeItem');
+var removeItem = document.getElementById("removeItem");
 // Empty array to fill with ingredients!
 var ingredients = [];
 
@@ -31,17 +30,18 @@ function showIngredients(autofillArray){
 
 
 // Spoonacular API Integration
-// 
+//
 // Surprise Me! Gets a random recipe.
 
-var surpriseRecipe = document.getElementById('surpriseRecipe'); 
-var surpriseResult = document.getElementById('surpriseResult');
+var surpriseRecipe = document.getElementById("surpriseRecipe");
+var surpriseResult = document.getElementById("surpriseResult");
 
-function surpriseMe (){
-    // Gets one random recipe from list above
-    var requestUrl = "https://api.spoonacular.com/recipes/random?apiKey=fcd9342fe05d484285a789f3da6691c2"
-    console.log("clicked")
-    fetch(requestUrl)
+function surpriseMe() {
+  // Gets one random recipe from list above
+  var requestUrl =
+    "https://api.spoonacular.com/recipes/random?apiKey=fcd9342fe05d484285a789f3da6691c2";
+  console.log("clicked");
+  fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
@@ -49,22 +49,22 @@ function surpriseMe (){
       console.log(data)
       var listItem = document.createElement('li');
       listItem.setAttribute("class", "btn");
-      var atag = document.createElement('a')
-      atag.textContent = data.recipes[0].title;   
-      atag.setAttribute('target', 'blank')
-      atag.setAttribute("href", data.recipes[0].sourceUrl)
-      atag.style.color = "white"
-      atag.style.width = "fit-content" //unsure if this is working
-      console.log(data.recipes[0].sourceUrl)
-      listItem.appendChild(atag)
+      var atag = document.createElement("a");
+      atag.textContent = data.recipes[0].title;
+      atag.setAttribute("target", "blank");
+      atag.setAttribute("href", data.recipes[0].sourceUrl);
+      atag.style.color = "white";
+      atag.style.width = "fit-content"; //unsure if this is working
+      console.log(data.recipes[0].sourceUrl);
+      listItem.appendChild(atag);
       surpriseResult.appendChild(listItem);
     })
 };
 
-surpriseRecipe.addEventListener('click', surpriseMe);
+surpriseRecipe.addEventListener("click", surpriseMe);
 
 // Initialize
-//    Load any ingredients that were previously entered 
+//    Load any ingredients that were previously entered
 //    autofill the ingredients list
 
 function init (){ 
@@ -111,8 +111,8 @@ function storeIngredients() {
 
 // Add submit event to form
 const form = document.getElementById("form");
-const inputId = document.getElementById("inputId")
-form.addEventListener("submit", function(event) {
+const inputId = document.getElementById("inputId");
+form.addEventListener("submit", function (event) {
   event.preventDefault();
 
   var text = inputId.value.trim();
@@ -126,7 +126,6 @@ form.addEventListener("submit", function(event) {
   // Store ingredients in localStorage, re-render the list
   storeIngredients();
   addIngredient();
-
 });
 
 // Spoonacular API Integration Below
@@ -197,20 +196,20 @@ ingredientList.addEventListener("click", function(event) {
 
 
 // Make cards
-//     Instead of making a list of recipes, 
+//     Instead of making a list of recipes,
 //     make a card for each recipe
 //     Spoonacular returns an image url so card could have image!
 // function renderCards (){}
 
 // Get Recipe Button
-    // Calls spoonacular api with the inputs as ingredients 
-    // gets 5 recipes back in order of most ingredients used
-    // if recipe uses more of an ingredient than the use has on hand
-    // ignore
+// Calls spoonacular api with the inputs as ingredients
+// gets 5 recipes back in order of most ingredients used
+// if recipe uses more of an ingredient than the use has on hand
+// ignore
 // function getRecipe (){ }
 
 // // Add autocomplete for ingredients list
-//  
+//
 // document.addEventListener('DOMContentLoaded', function() {
 //     var elems = document.querySelectorAll('.autocomplete');
 //     var instances = M.Autocomplete.init(elems, options);
@@ -236,3 +235,48 @@ function foodJoke () {
   }
   
   jokeBtn.addEventListener('click', foodJoke);
+//   });
+
+// // Audio for Buttons
+const audioContext = new (window.AudioContext || window.AudioContext)();
+
+const primaryGainControl = audioContext.createGain();
+primaryGainControl.gain.setValueAtTime(0.05, 0);
+primaryGainControl.connect(audioContext.destination);
+
+const dingButton = document.getElementById("surpriseRecipe");
+dingButton.addEventListener("click", async () => {
+  const response = await fetch(
+    "https://unpkg.com/@teropa/drumkit@1.1.0/src/assets/hatOpen2.mp3"
+    
+  );
+  const soundBuffer = await response.arrayBuffer();
+  const dingBuffer = await audioContext.decodeAudioData(soundBuffer);
+
+  const dingSource = audioContext.createBufferSource();
+  dingSource.buffer = dingBuffer;
+
+  dingSource.connect(primaryGainControl);
+  dingSource.start();
+});
+
+const secondaryGainControl = audioContext.createGain();
+secondaryGainControl.gain.setValueAtTime(0.05, 0);
+secondaryGainControl.connect(audioContext.destination);
+const dingBtn = document.getElementById("getRecipe");
+dingBtn.addEventListener("click", async () => {
+  const response = await fetch(
+    "https://unpkg.com/@teropa/drumkit@1.1.0/src/assets/hatOpen2.mp3"
+    
+  );
+  const soundBuffer = await response.arrayBuffer();
+  const dingBuffer = await audioContext.decodeAudioData(soundBuffer);
+
+  const dingSource = audioContext.createBufferSource();
+  dingSource.buffer = dingBuffer;
+
+  dingSource.connect(secondaryGainControl);
+  dingSource.start();
+});
+
+
